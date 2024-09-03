@@ -14,7 +14,7 @@ The fork-bus-booking-system is a customized version of a bus booking system desi
     * [Database](#database---mysql)
     * [Queue connection - Redis](#queue-connection---redis)
     * [Email service](#email-service)
-* [Live Demo](#live-demo)
+
 
 ## Main Technologies
 
@@ -26,7 +26,7 @@ The fork-bus-booking-system is a customized version of a bus booking system desi
 * MySQL
 * Redis
 
-## Features
+
 
 ## Features
 
