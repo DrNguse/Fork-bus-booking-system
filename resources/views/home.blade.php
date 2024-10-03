@@ -8,7 +8,7 @@
     <div class="container">
         <header class="d-flex align-items-center justify-content-center">
             <h1 class="text-center mb-3 text-white font-weight-light align-middle">
-                Search for bus rides
+                Search For Bus Rides
             </h1>
         </header>
 
@@ -27,7 +27,8 @@
                                         :placeholder="'From'"
                                         :prepend_icon="'fas fa-map-marker-alt'"
                                         :old="'{{ old('start_location') }}'"
-                                        :required="true">
+                                        :required="true"
+                                        :show_all_on_click="true">
                                     </autocomplete-input>
                                 </div>
 
@@ -40,7 +41,8 @@
                                         :placeholder="'To'"
                                         :prepend_icon="'fas fa-map-marker-alt'"
                                         :old="'{{ old('end_location') }}'"
-                                        :required="true">
+                                        :required="true"
+                                        :show_all_on_click="true">
                                     </autocomplete-input>
                                 </div>
 

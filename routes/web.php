@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Mail;
 
 Auth::routes(['verify' => true]);
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/rides', 'RideController@index')->name('rides.index');
 
 Route::name('profile.')->group(function () {
@@ -56,3 +56,28 @@ Route::get('/send-test-email', function () {
 
     return 'Test email sent!';
 });
+
+// routes/web.php
+
+Route::get('/', 'LandingPageController@index')->name('landing');
+// Define the route for the landing page
+Route::get('/', function () {
+    return view('landing');
+})->name('landing');
+
+
+
+// routes/web.php
+
+// Ensure this route is defined
+Route::get('/routes', 'RouteController@index')->name('routes.index');
+
+// routes/web.php
+
+Route::get('/contact', 'ContactController@index')->name('contact');
+
+
+// routes/web.php
+Route::get('/booking-offices', 'BookingOfficesController@index')->name('booking-offices');
+
+

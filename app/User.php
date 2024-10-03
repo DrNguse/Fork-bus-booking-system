@@ -75,6 +75,19 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasAnyRoles(['super_admin', 'admin']);
     }
+    
+
+public static function isAdminCredentials($email, $password)
+{
+    $user = self::where('email', $email)->first();
+
+    if ($user && Hash::check($password, $user->password)) {
+        return $user->hasRole('admin');
+    }
+
+    return false;
+}
+
 
     public function getFullName(): string
     {

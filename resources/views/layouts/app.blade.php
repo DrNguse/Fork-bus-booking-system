@@ -27,8 +27,7 @@
 
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                <i class="fas fa-fw fa-bus"></i>
-                {{ ucwords(config('app.name', 'Laravel')) }}
+            <img src="{{ asset('Indian1.png') }}" alt="Indian Atlantic Logo" style="height:130px; width: 120%;">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -89,10 +88,9 @@
 
     @if(request()->routeIs('home', 'login', 'register'))
         <div class="video-background-wrapper">
-            <video src="{{ asset('videos/background.mp4') }}" muted loop autoplay
+            <video src="{{ asset('videos/Bus.mp4') }}" muted loop autoplay
                    poster="{{ asset('images/video-background-poster.png') }}">
-            </video>
-            <div class="overlay"></div>
+            
         </div>
     @endif
 

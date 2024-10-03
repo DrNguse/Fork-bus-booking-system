@@ -19,10 +19,21 @@ class UserSeeder extends Seeder
             'password' => Hash::make('BbsSuper123')
         ])->roles()->attach($userRoles);
 
-        User::factory()->create([
+        // User::factory()->create([
+        //     'email' => 'admin@bbs.xyz',
+        //     'password' => Hash::make('BbsAdmin123')
+        // ])->roles()->attach($userRoles->whereNotIn('name', 'super_admin'));
+        // Admin user
+        $adminUser = User::updateOrCreate([
             'email' => 'admin@bbs.xyz',
-            'password' => Hash::make('BbsAdmin123')
-        ])->roles()->attach($userRoles->whereNotIn('name', 'super_admin'));
+        ], [
+            'first_name' => 'Admin',
+            'last_name' => 'User',
+            'password' => Hash::make('BbsAdmin123'),
+        ]);
+        // Attach admin role
+        $adminUser->roles()->sync([$adminRole->id, $superAdminRole->id]);
+
 
         User::factory()->create([
             'email' => 'user@bbs.xyz',
@@ -33,5 +44,8 @@ class UserSeeder extends Seeder
         User::factory(50)->create()->each(function ($user) use ($userRoles) {
             $user->roles()->attach($userRoles->where('name', 'user'));
         });
+        $user = User::where('email', 'superadmin@bbs.xyz')->first();
+$user->markEmailAsVerified();
+
     }
 }
